@@ -1,28 +1,29 @@
-// frontend/src/App.js
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { CssBaseline, Container, Box } from "@mui/material";
+import { CssBaseline, Container } from "@mui/material";
 import NavBar from "./components/NavBar";
-import HomePage from "./pages/HomePage";
-import MedicationsPage from "./pages/MedicationsPage";
-import PatientsPage from "./pages/PatientsPage";
-import DosagesPage from "./pages/DosagesPage";
-import AlertsPage from "./pages/AlertsPage";
+import HomePage from "./pages/Home/HomePage";
+import MedicationsPage from "./pages/Medications/MedicationsPage";
+import PatientsPage from "./pages/Patients/PatientsPage";
+import DosagesPage from "./pages/Dosages/DosagesPage";
+import AlertsPage from "./pages/Alerts/AlertsPage";
+// Remove this: import api from './services/api';
 
 function App() {
+  // Remove any direct getAlerts() calls from here
+  // API calls should happen in individual page components
+
   return (
     <Router>
       <CssBaseline />
       <NavBar />
-      <Container maxWidth="lg">
-        <Box my={4}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/medications" element={<MedicationsPage />} />
-            <Route path="/patients" element={<PatientsPage />} />
-            <Route path="/dosages" element={<DosagesPage />} />
-            <Route path="/alerts" element={<AlertsPage />} />
-          </Routes>
-        </Box>
+      <Container maxWidth="lg" sx={{ mt: 4 }}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/medications" element={<MedicationsPage />} />
+          <Route path="/patients" element={<PatientsPage />} />
+          <Route path="/dosages" element={<DosagesPage />} />
+          <Route path="/alerts" element={<AlertsPage />} />
+        </Routes>
       </Container>
     </Router>
   );

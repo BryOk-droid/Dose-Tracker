@@ -1,31 +1,30 @@
-// frontend/src/services/api.js
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
-  headers: {
-    "Content-Type": "application/json",
-  },
+  baseURL: "http://localhost:5002/api",
+  headers: { "Content-Type": "application/json" },
 });
 
-// Medication endpoints
+// Medications
 export const getMedications = () => api.get("/medications");
-export const getMedication = (id) => api.get(`/medications/${id}`);
-export const addMedication = (medication) =>
-  api.post("/medications", medication);
-export const updateMedication = (id, medication) =>
-  api.put(`/medications/${id}`, medication);
+export const addMedication = (data) => api.post("/medications", data);
+export const updateMedication = (id, data) =>
+  api.put(`/medications/${id}`, data);
 export const deleteMedication = (id) => api.delete(`/medications/${id}`);
 
-// Patient endpoints
+// Patients
 export const getPatients = () => api.get("/patients");
-export const addPatient = (patient) => api.post("/patients", patient);
+export const addPatient = (data) => api.post("/patients", data);
+export const updatePatient = (id, data) => api.put(`/patients/${id}`, data);
+export const updateDosage = (id, data) => api.put(`/dosages/${id}`, data);
+export const deletePatient = (id) => api.delete(`/patients/${id}`);
 
-// Dosage endpoints
+// Dosages
 export const getDosages = () => api.get("/dosages");
-export const addDosage = (dosage) => api.post("/dosages", dosage);
+export const addDosage = (data) => api.post("/dosages", data);
+export const deleteDosage = (id) => api.delete(`/dosages/${id}`);
 
-// Alert endpoints
+// Alerts
 export const getAlerts = () => api.get("/alerts");
 
 export default api;
