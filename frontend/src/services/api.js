@@ -1,7 +1,8 @@
 import axios from "axios";
 
+// Set the base URL to your backend domain ONLY (no /patients here)
 const api = axios.create({
-  baseURL: "https://dose-jg6q.onrender.com/patients",
+  baseURL: import.meta.env.VITE_API_URL,
   headers: { "Content-Type": "application/json" },
 });
 
