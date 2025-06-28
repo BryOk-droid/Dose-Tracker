@@ -6,12 +6,8 @@ import MedicationsPage from "./pages/Medications/MedicationsPage";
 import PatientsPage from "./pages/Patients/PatientsPage";
 import DosagesPage from "./pages/Dosages/DosagesPage";
 import AlertsPage from "./pages/Alerts/AlertsPage";
-// Remove this: import api from './services/api';
 
 function App() {
-  // Remove any direct getAlerts() calls from here
-  // API calls should happen in individual page components
-
   return (
     <Router>
       <CssBaseline />
