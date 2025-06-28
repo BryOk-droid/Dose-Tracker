@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// Set the base URL to your backend domain ONLY (no /patients here)
+// Set the base URL to your backend domain ONLY
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   headers: { "Content-Type": "application/json" },
