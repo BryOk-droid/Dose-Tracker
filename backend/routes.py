@@ -225,9 +225,15 @@ def init_routes():
     # Alerts Route
     @bp.route('/alerts', methods=['GET'])
     def get_alerts():
-        medications = Medication.query.filter(
-            Medication.current_stock < Medication.threshold
-        ).all()
-        return jsonify([med.to_dict() for med in medications])
+        try:
+            medications = Medication.query.filter(
+                Medication.current_stock != None,
+                Medication.threshold != None,
+                Medication.current_stock < Medication.threshold
+            ).all()
+            return jsonify([med.to_dict() for med in medications]), 200
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+
 
     return bp
