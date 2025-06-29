@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Set the base URL to your backend domain ONLY
 const api = axios.create({
-  baseURL: "https://dose-jg6q.onrender.com/api",
+  baseURL: process.env.REACT_APP_API_URL,
   headers: { "Content-Type": "application/json" },
 });
 

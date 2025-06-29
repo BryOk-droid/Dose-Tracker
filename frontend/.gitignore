@@ -28,6 +28,5 @@ yarn-error.log*
 *.tmp
 *.bak
 *.swp
-*.env
 dist/
 .cache/
