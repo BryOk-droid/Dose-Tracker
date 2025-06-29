@@ -1,5 +1,7 @@
 import axios from "axios";
 
+console.log("🌍 Base URL:", process.env.REACT_APP_API_URL);
+
 // Set the base URL to your backend domain ONLY
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
