@@ -17,7 +17,7 @@ def create_app(test_config=None):
         SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL') or 'sqlite:///medications.db',
         SQLALCHEMY_TRACK_MODIFICATIONS=False,
         SQLALCHEMY_ENGINE_OPTIONS={'pool_pre_ping': True},
-        CORS_ORIGINS=os.environ.get('CORS_ORIGINS', '*')
+        CORS_ORIGINS=["https://medication-2uz1.onrender.com"],
     )
     
     # Initialize extensions
