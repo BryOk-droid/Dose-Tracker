@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Set the base URL to your backend domain ONLY
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: "https://dose-jg6q.onrender.com/api",
   headers: { "Content-Type": "application/json" },
 });
 
