@@ -6,6 +6,8 @@ import os
 from datetime import timedelta
 import logging
 from logging.handlers import RotatingFileHandler
+from dotenv import load_dotenv 
+load_dotenv()
 
 def create_app(test_config=None):
     """Application factory function"""
@@ -17,7 +19,9 @@ def create_app(test_config=None):
         SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL') or 'sqlite:///medications.db',
         SQLALCHEMY_TRACK_MODIFICATIONS=False,
         SQLALCHEMY_ENGINE_OPTIONS={'pool_pre_ping': True},
-        CORS_ORIGINS=["https://medication-2uz1.onrender.com"],
+        CORS_ORIGINS=[
+            "http://localhost:3000",
+            "https://medication-2uz1.onrender.com"],
     )
     
     # Initialize extensions
