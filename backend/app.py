@@ -27,6 +27,12 @@ def create_app(test_config=None):
   
     db.init_app(app)
     migrate = Migrate(app, db)
+    
+    @app.before_first_request
+    def run_migrations():
+        from flask_migrate import upgrade
+        upgrade()
+
     CORS(app, resources={
         r"/api/*": {
             "origins": app.config['CORS_ORIGINS'],

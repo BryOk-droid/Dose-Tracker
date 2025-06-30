@@ -95,3 +95,8 @@ Built with 💙 by Brian Okoth Omuga
 ## License
 MIT License — Free to use & improve.
 
+## 🚀 Deployment Status
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/42b188b7-e5d3-4e78-a7be-2dad237934f9/deploy-status)](https://app.netlify.com/projects/dose-tracker/deploys)
+
+✅ This badge reflects the status of your latest Netlify production deployment.
