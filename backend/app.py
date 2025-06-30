@@ -13,7 +13,7 @@ def create_app(test_config=None):
     """Application factory function"""
     app = Flask(__name__)
     
-    # Configure application
+  
     app.config.from_mapping(
         SECRET_KEY=os.environ.get('SECRET_KEY') or 'dev_key',
         SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL') or 'sqlite:///medications.db',
@@ -24,7 +24,7 @@ def create_app(test_config=None):
             "https://medication-2uz1.onrender.com"],
     )
     
-    # Initialize extensions
+  
     db.init_app(app)
     migrate = Migrate(app, db)
     CORS(app, resources={
@@ -35,11 +35,11 @@ def create_app(test_config=None):
         }
     })
     
-    # Register blueprints
+   
     from routes import init_routes
     app.register_blueprint(init_routes(), url_prefix='/api')
     
-    # Add root route
+    
     @app.route('/')
     def home():
         return jsonify({
@@ -65,7 +65,7 @@ def create_app(test_config=None):
             }
         })
     
-    # Add 404 handler
+   
     @app.errorhandler(404)
     def not_found(error):
         return jsonify({
@@ -74,7 +74,7 @@ def create_app(test_config=None):
             "status": 404
         }), 404
     
-    # Configure logging
+   
     if not app.debug:
         if not os.path.exists('logs'):
             os.mkdir('logs')
